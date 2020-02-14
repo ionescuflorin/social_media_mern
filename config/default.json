@@ -1,0 +1,4 @@
+{
+    "mongoURI" : "mongodb+srv://dbFlorin:dbflorinpassword@socialmern-4rrpl.mongodb.net/test?retryWrites=true&w=majority"
+
+}

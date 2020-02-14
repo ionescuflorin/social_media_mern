@@ -2,9 +2,14 @@
 
 // 1. bring express
 const express = require('express');
+// db route connection
+const connectDB = require('./config/db')
 
 // 2. use express
 const app = express();
+
+// db connection
+connectDB();
 
 // 4. dev code ---------------
 
