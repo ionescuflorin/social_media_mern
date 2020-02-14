@@ -11,6 +11,9 @@ const app = express();
 // 5.2 db connection
 connectDB();
 
+// 7. init middleware
+app.use(express.json({ extended: false })); // body parser
+
 // 4. dev code ---------------
 
 app.get("/", (req, res) => res.send(`API RUNNING`));
