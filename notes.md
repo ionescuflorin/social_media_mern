@@ -25,3 +25,6 @@
     *Hot reloader*
 - concurrently
     *Run our backend and frontend at the same time*
+
+### In order to interact with our database we need to create a model for each of our resources.
+- to create a model we need to create a schema
