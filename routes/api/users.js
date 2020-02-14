@@ -3,6 +3,8 @@ const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const gravatar = require("gravatar");
 const bcrypt = require("bcryptjs");
+const jwt = request("jsonwebtoken");
+const config = require("config");
 // import model
 const User = require("../../models/User");
 
@@ -62,7 +64,22 @@ router.post(
 
       // Return JWT
       // Now the reason I'm returning the JWT token is because in the front end when a user registers I want them to get logged in right away
-      res.send("User Registered");
+      // res.send("User Registered");
+      const payload = {
+        user: {
+          id: user.id
+        }
+      };
+
+      jwt.sign(
+        payload,
+        config.get("jwtSecret"),
+        { exipresIn: 360000 },
+        (err, token) => {
+          if (err) throw err;
+          res.json({ token });
+        }
+      );
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server error");
